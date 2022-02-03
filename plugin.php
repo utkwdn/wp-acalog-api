@@ -942,3 +942,15 @@ register_activation_hook(__FILE__, 'acalog_api_activate');
 add_action('acalog_api_cron_hook', 'acalog_update_all');
 
 register_deactivation_hook( __FILE__, 'acalog_api_deactivate' ); 
+
+//register the associated block that allows users to quickly select a program.
+function acalog_api_register_block() {
+    if ( ! function_exists( 'register_block_type_from_metadata' ) ) {
+        // Block editor is not available.
+        return;
+    }
+ 
+    register_block_type( __DIR__ );
+}
+
+add_action( 'init', 'acalog_api_register_block' );
