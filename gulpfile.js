@@ -15,6 +15,11 @@ gulp.task('distchecker', function () {
       return gulp.src('plugin-update-checker/**')
       .pipe( gulp.dest('packaged/wp-acalog-api/plugin-update-checker') );
 });
+// copy the xsl directoy
+gulp.task('distxsl', function () {
+      return gulp.src('xsl/**')
+      .pipe( gulp.dest('packaged/wp-acalog-api/xsl') );
+});
 gulp.task('distsrc', function () {
       return gulp.src('src/**')
       .pipe( gulp.dest('packaged/wp-acalog-api/src') );
@@ -27,4 +32,4 @@ gulp.task('distplugin', function () {
 
 
 
-gulp.task('package', gulp.series('distdist','distchecker', 'distsrc', 'distplugin'));
+gulp.task('package', gulp.series('distdist','distchecker', 'distxsl', 'distsrc', 'distplugin'));

@@ -14,17 +14,29 @@ registerBlockType( 'acalog-api/programs', {
 
 
 		return (
-            <p>
-                Hello World.
-            </p>
+            <form>
+                <label className="form-label" for="program">Search for a program:</label>
+                <input className="form-control" list="programs" id="program" name="program" />
+                <datalist id="programs">
+                {all_programs.map((this_program) => (
+                    <option value={this_program.label}></option>
+                ) ) }
+                </datalist>
+            </form>
         );
 	},
 
     save: ( props ) => {
 		return (
-            <p>
-                Hello World.
-            </p>
+            <form>
+                <label className="form-label" for="program">Search for a program:</label>
+                <input className="form-control" list="programs" id="program" name="program" />
+                <datalist id="programs">
+                {all_programs.map((this_program) => (
+                    <option value={this_program.label}></option>
+                ) ) }
+                </datalist>
+            </form>
         );
 	},
 } );
